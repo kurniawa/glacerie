@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 class CalculatorController extends Controller
 {
     function index() {
-        $reseps = Resep::orderBy('nama')->select('id', 'nama as label', 'nama as value', 'porsi', 'satuan')->get();
+        $reseps = Resep::orderBy('nama')->select('id', 'nama', 'nama_lengkap', 'nama_lengkap as label', 'nama_lengkap as value', 'porsi')->get();
         $bahans = Bahan::orderBy('nama')->get();
         $resep_bahans = ResepBahan::all();
         // $rass = RelasiAntarSatuan::all();

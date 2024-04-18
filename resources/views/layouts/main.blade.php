@@ -19,7 +19,7 @@
         }
     </style>
     <title>Glacerie</title>
-    {{-- @laravelPWA --}}
+    @laravelPWA
 </head>
 <body class="relative">
     <div id="menu-close-layer" class="absolute w-screen h-screen hidden z-30" onclick="hideMenuCloseLayer('profile-menu','menu-close-layer')"></div>
@@ -272,6 +272,34 @@
             } else {
                 toggle_button.innerHTML = `
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>`;
+            }
+        }, 450);
+    }
+
+    function showDropdownGrid(button, dropdown) {
+        $selectedDiv = $(`#${dropdown}`);
+        $selectedDiv.toggle(400);
+
+        let toggle_button = document.getElementById(button);
+        setTimeout(() => {
+            // console.log($selectedDiv.css("display"));
+            // console.log(`$selectedDiv.css("display") = ${$selectedDiv.css("display")}`);
+            // if ($selectedDiv.css("display") === "block" || $selectedDiv.css("display") === "table-row") {
+            //     $(`#${button}` + " img").attr("src", "/img/icons/dropup.svg");
+            // } else {
+            //     $(`#${button}` + " img").attr("src", "/img/icons/dropdown.svg");
+            // }
+            if ($selectedDiv.css("display") === "grid") {
+                toggle_button.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                </svg>
+                `;
+            } else {
+                toggle_button.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                 </svg>`;
             }

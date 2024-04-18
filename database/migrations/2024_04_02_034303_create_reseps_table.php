@@ -14,8 +14,10 @@ return new class extends Migration
         Schema::create('reseps', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->smallInteger('porsi')->nullable();
-            $table->string('satuan', 20)->nullable();
+            $table->string('porsi', 50)->nullable();
+            $table->string('nama_lengkap', 50);
+            $table->text('cara_pembuatan')->nullable();
+            $table->string('keterangan')->nullable();
             $table->timestamps();
         });
     }

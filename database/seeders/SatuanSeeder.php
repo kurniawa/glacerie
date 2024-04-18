@@ -21,6 +21,8 @@ class SatuanSeeder extends Seeder
             ['nama' => 'l', 'detailname' => 'liter'],
             ['nama' => 'ml', 'detailname' => 'mililiter'],
             ['nama' => 'sdm', 'detailname' => 'sendok makan'],
+            ['nama' => 'sdt', 'detailname' => 'sendok teh'],
+            ['nama' => 'butir', 'detailname' => 'butir'],
         ];
 
         foreach ($satuans as $satuan) {
@@ -44,8 +46,8 @@ class SatuanSeeder extends Seeder
         ];
 
         foreach ($relasi_antar_satuans as $relasi_antar_satuan) {
-            $satuan_id = Satuan::where('nama', $relasi_antar_satuan['satuan'])->first();
-            $relasi_id = Satuan::where('nama', $relasi_antar_satuan['relasi'])->first();
+            $satuan = Satuan::where('nama', $relasi_antar_satuan['satuan'])->first();
+            $relasi = Satuan::where('nama', $relasi_antar_satuan['relasi'])->first();
             $pembagi_faktor = null;
 
             if (isset($relasi_antar_satuan['pembagi_faktor'])) {
@@ -53,8 +55,8 @@ class SatuanSeeder extends Seeder
             }
 
             RelasiAntarSatuan::create([
-                'satuan_id' => $satuan_id,
-                'relasi_id' => $relasi_id,
+                'satuan_id' => $satuan->id,
+                'relasi_id' => $relasi->id,
                 'operasi' => $relasi_antar_satuan['operasi'],
                 'faktor' => $relasi_antar_satuan['faktor'],
                 'pembagi_faktor' => $pembagi_faktor,

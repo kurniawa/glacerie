@@ -16,11 +16,11 @@ return new class extends Migration
             $table->string('nama')->unique();
             $table->string('othername')->nullable();
             $table->string('detailname')->nullable();
-            $table->string('satuan_1', 20)->nullable();
-            $table->string('satuan_2', 20)->nullable();
-            $table->string('satuan_3', 20)->nullable();
-            $table->string('satuan_4', 20)->nullable();
-            $table->string('satuan_5', 20)->nullable();
+            // $table->string('satuan_1', 20)->nullable();
+            // $table->string('satuan_2', 20)->nullable();
+            // $table->string('satuan_3', 20)->nullable();
+            // $table->string('satuan_4', 20)->nullable();
+            // $table->string('satuan_5', 20)->nullable();
             $table->timestamps();
         });
     }
